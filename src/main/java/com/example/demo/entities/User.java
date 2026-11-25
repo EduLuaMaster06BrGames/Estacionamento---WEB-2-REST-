@@ -1,6 +1,5 @@
 package com.example.demo.entities;
 
-import com.example.demo.dto.LoginUserDto;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;

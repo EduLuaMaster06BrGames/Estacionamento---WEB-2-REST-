@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.*;
-import com.example.demo.dto.*;
+import com.example.demo.dto_old.*;
 import com.example.demo.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

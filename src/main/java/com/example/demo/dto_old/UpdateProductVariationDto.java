@@ -1,8 +1,8 @@
-package com.example.demo.dto;
+package com.example.demo.dto_old;
 
 import java.math.BigDecimal;
 
-public record CreateProductVariationDto(
+public record UpdateProductVariationDto(
 
         String sizeName,
 
