@@ -42,10 +42,3 @@ public class EstacionamentoController {
 
     // POST, PATCH e DELETE seguem o mesmo formato do ProductController
 }
-
-    @DeleteMapping("/{productId}/variation/{productVariationId}")
-    public ResponseEntity<Void> deleteProductVariationById(@PathVariable Long productId, @PathVariable Long productVariationId) {
-        productService.deleteProductVariationById(productId, productVariationId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-}

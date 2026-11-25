@@ -27,6 +27,7 @@ public class Veiculo {
     private String placa;
 
     @Enumerated(EnumType.STRING)
+    @Column(name="tipoVeiculo")
     private TipoVeiculo tipo;
 
     // Lado "N" da relação: muitos veículos pertencem a um estacionamento
