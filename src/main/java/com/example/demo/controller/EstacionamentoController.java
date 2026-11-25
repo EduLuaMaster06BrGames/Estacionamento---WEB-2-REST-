@@ -14,45 +14,34 @@ import java.util.List;
 public class EstacionamentoController {
 
     @Autowired
-    private ProductService productService; // criar
+    private EstacionamentoService estacionamentoService;
 
-    @PostMapping
-    public ResponseEntity<RecoveryProductDto> createProduct(@RequestBody CreateProductDto productDto) {
-        return new ResponseEntity<>(productService.createProduct(productDto), HttpStatus.CREATED);
-    }
-
-    @PostMapping({"/{productId}/variation"})
-    public ResponseEntity<RecoveryProductDto> createProductVariation(@PathVariable Long productId,
-                                                                     @RequestBody CreateProductVariationDto createProductVariationDto) {
-        return new ResponseEntity<>(productService.createProductVariation(productId, createProductVariationDto), HttpStatus.OK);
-    }
-
+    // GET /estacionamentos
     @GetMapping
-    public ResponseEntity<List<RecoveryProductDto>> getProducts() {
-        return new ResponseEntity<>(productService.getProducts(), HttpStatus.OK);
+    public ResponseEntity<List<RecoveryEstacionamentoDto>> getEstacionamentos() {
+        return new ResponseEntity<>(estacionamentoService.getEstacionamentos(), HttpStatus.OK);
     }
 
-    @GetMapping("/{productId}")
-    public ResponseEntity<RecoveryProductDto> getProductById(@PathVariable Long productId) {
-        return new ResponseEntity<>(productService.getProductById(productId), HttpStatus.OK);
+    // GET /estacionamentos?tipo=PUBLICO
+    @GetMapping(params = "tipo")
+    public ResponseEntity<List<RecoveryEstacionamentoDto>> getEstacionamentosByTipo(@RequestParam String tipo) {
+        return new ResponseEntity<>(estacionamentoService.getEstacionamentosByTipo(tipo), HttpStatus.OK);
     }
 
-    @PatchMapping("/{productId}")
-    public ResponseEntity<RecoveryProductDto> updateProductPart(@PathVariable Long productId, @RequestBody UpdateProductDto updateProductDto) {
-        return new ResponseEntity<>(productService.updateProductPart(productId, updateProductDto), HttpStatus.OK);
+    // GET /estacionamentos/lotados
+    @GetMapping("/lotados")
+    public ResponseEntity<List<RecoveryEstacionamentoDto>> getEstacionamentosLotados() {
+        return new ResponseEntity<>(estacionamentoService.getEstacionamentosLotados(), HttpStatus.OK);
     }
 
-    @PutMapping("/{productId}/variation/{productVariationId}")
-    public ResponseEntity<RecoveryProductDto> updateProductVariation(@PathVariable Long productId, @PathVariable Long productVariationId,
-                                                                     @RequestBody UpdateProductVariationDto updateProductVariationDto) {
-        return new ResponseEntity<>(productService.updateProductVariation(productId, productVariationId, updateProductVariationDto), HttpStatus.OK);
+    // GET /estacionamentos/{estacionamentoId}
+    @GetMapping("/{estacionamentoId}")
+    public ResponseEntity<RecoveryEstacionamentoDto> getEstacionamentoById(@PathVariable Long estacionamentoId) {
+        return new ResponseEntity<>(estacionamentoService.getEstacionamentoById(estacionamentoId), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{productId}")
-    public ResponseEntity<Void> deleteProductById(@PathVariable Long productId) {
-        productService.deleteProductId(productId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+    // POST, PATCH e DELETE seguem o mesmo formato do ProductController
+}
 
     @DeleteMapping("/{productId}/variation/{productVariationId}")
     public ResponseEntity<Void> deleteProductVariationById(@PathVariable Long productId, @PathVariable Long productVariationId) {
