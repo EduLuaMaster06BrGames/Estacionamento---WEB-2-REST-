@@ -1,6 +1,5 @@
 package com.example.demo.dto;
 
-// Usado tanto na entrada (Create/Update) quanto na saída (Recovery) do estacionamento
 public record EnderecoDto(
 
         String pais,
