@@ -1,5 +1,14 @@
 package com.example.demo.controller;
 
+import com.example.demo.models.Veiculo;
+import com.example.demo.services.VeiculoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/veiculos")
 public class VeiculoController {
@@ -7,27 +16,23 @@ public class VeiculoController {
     @Autowired
     private VeiculoService veiculoService;
 
-    // GET /veiculos
     @GetMapping
-    public ResponseEntity<List<RecoveryVeiculoDto>> getVeiculos() {
+    public ResponseEntity<List<Veiculo>> getVeiculos() {
         return new ResponseEntity<>(veiculoService.getVeiculos(), HttpStatus.OK);
     }
 
-    // GET /veiculos?modelo=Gol
     @GetMapping(params = "modelo")
-    public ResponseEntity<List<RecoveryVeiculoDto>> getVeiculosByModelo(@RequestParam String modelo) {
+    public ResponseEntity<List<Veiculo>> getVeiculosByModelo(@RequestParam String modelo) {
         return new ResponseEntity<>(veiculoService.getVeiculosByModelo(modelo), HttpStatus.OK);
     }
 
-    // GET /veiculos/placa/{placa}
     @GetMapping("/placa/{placa}")
-    public ResponseEntity<RecoveryVeiculoDto> getVeiculoByPlaca(@PathVariable String placa) {
+    public ResponseEntity<Veiculo> getVeiculoByPlaca(@PathVariable String placa) {
         return new ResponseEntity<>(veiculoService.getVeiculoByPlaca(placa), HttpStatus.OK);
     }
 
-    // GET /veiculos/{veiculoId}
     @GetMapping("/{veiculoId}")
-    public ResponseEntity<RecoveryVeiculoDto> getVeiculoById(@PathVariable Long veiculoId) {
+    public ResponseEntity<Veiculo> getVeiculoById(@PathVariable Long veiculoId) {
         return new ResponseEntity<>(veiculoService.getVeiculoById(veiculoId), HttpStatus.OK);
     }
 }

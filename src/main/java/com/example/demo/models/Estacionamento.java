@@ -39,7 +39,6 @@ public class Estacionamento {
 
     private Double areaTotal;
 
-    // Lado "1" da relação: um estacionamento tem muitos veículos (igual Product -> ProductVariation)
     @OneToMany(mappedBy = "estacionamento", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<Veiculo> veiculos = new ArrayList<>();

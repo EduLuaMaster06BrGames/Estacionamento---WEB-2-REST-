@@ -30,7 +30,6 @@ public class Veiculo {
     @Column(name="tipoVeiculo")
     private TipoVeiculo tipo;
 
-    // Lado "N" da relação: muitos veículos pertencem a um estacionamento
     @ManyToOne
     @JoinColumn(name = "idestacionamento")
     private Estacionamento estacionamento;

@@ -8,10 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/*
-Endereço é uma classe @Embeddable: não vira uma tabela própria,
-os campos dela são gravados como colunas na tabela "estacionamentos".
- */
 @Embeddable
 @Builder
 @NoArgsConstructor
