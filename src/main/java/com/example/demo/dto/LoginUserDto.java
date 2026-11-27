@@ -1,11 +1,9 @@
-package com.example.demo.dto_old;
+package com.example.demo.dto;
 
-public class RegisterUserDto {
+public class LoginUserDto {
     private String email;
 
     private String password;
-
-    private String fullName;
 
     public String getEmail() {
         return email;
@@ -22,13 +20,4 @@ public class RegisterUserDto {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
 }
-

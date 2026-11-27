@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.entities.User;
-import com.example.demo.dto_old.LoginUserDto;
-import com.example.demo.dto_old.RegisterUserDto;
+import com.example.demo.dto.LoginUserDto;
+import com.example.demo.dto.RegisterUserDto;
 import com.example.demo.responses.LoginResponse;
 import com.example.demo.services.AuthenticationService;
 import com.example.demo.services.JwtService;

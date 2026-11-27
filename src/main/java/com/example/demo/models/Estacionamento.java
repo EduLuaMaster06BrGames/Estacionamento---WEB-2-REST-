@@ -39,6 +39,8 @@ public class Estacionamento {
 
     private Double areaTotal;
 
+    private Integer capacidade;
+
     @OneToMany(mappedBy = "estacionamento", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<Veiculo> veiculos = new ArrayList<>();
